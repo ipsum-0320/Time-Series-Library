@@ -1,5 +1,3 @@
-export CUDA_VISIBLE_DEVICES=0
-
 model_name=TimeXer
 
 python -u run.py \
