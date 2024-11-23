@@ -1,3 +1,5 @@
+export CUDA_VISIBLE_DEVICES=0,1 # 这表示编号为 0 和编号为 1 的 GPU 是可见的。
+
 model_name=TimeMixer
 
 seq_len=96
@@ -33,3 +35,5 @@ python -u run.py \
   --down_sampling_layers $down_sampling_layers \
   --down_sampling_method avg \
   --down_sampling_window $down_sampling_window
+  --use_multi_gpu \
+  --use_gpu True

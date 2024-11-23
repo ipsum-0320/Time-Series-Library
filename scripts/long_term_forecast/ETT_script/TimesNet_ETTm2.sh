@@ -1,3 +1,6 @@
+export CUDA_VISIBLE_DEVICES=0,1 # 这表示编号为 0 和编号为 1 的 GPU 是可见的。
+
+
 model_name=TimesNet
 
 python -u run.py \
@@ -22,5 +25,7 @@ python -u run.py \
   --d_model 32 \
   --d_ff 32 \
   --top_k 5 \
+  --use_multi_gpu \
+  --use_gpu True \
   --itr 1
 

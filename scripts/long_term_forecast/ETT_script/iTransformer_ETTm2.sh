@@ -1,3 +1,5 @@
+export CUDA_VISIBLE_DEVICES=0,1 # 这表示编号为 0 和编号为 1 的 GPU 是可见的。
+
 model_name=iTransformer
 
 python -u run.py \
@@ -21,4 +23,6 @@ python -u run.py \
   --des 'Exp' \
   --d_model 128 \
   --d_ff 128 \
+  --use_multi_gpu \
+  --use_gpu True \
   --itr 1

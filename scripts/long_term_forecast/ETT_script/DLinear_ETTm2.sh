@@ -1,3 +1,5 @@
+export CUDA_VISIBLE_DEVICES=0,1 # 这表示编号为 0 和编号为 1 的 GPU 是可见的。
+
 model_name=DLinear
 
 python -u run.py \
@@ -19,4 +21,6 @@ python -u run.py \
   --dec_in 7 \
   --c_out 7 \
   --des 'Exp' \
+  --use_multi_gpu \
+  --use_gpu True \
   --itr 1
