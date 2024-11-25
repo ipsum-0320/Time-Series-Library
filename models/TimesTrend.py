@@ -121,6 +121,9 @@ class Model(nn.Module):
         self.layer_norm = nn.LayerNorm(configs.d_model)
         self.trend_layer_norm = nn.LayerNorm(configs.d_model)
 
+        self.trend_linear = nn.Linear(in_features=7, out_features=7)
+        self.seasonal_linear = nn.Linear(in_features=7, out_features=7)
+
         if self.task_name == 'long_term_forecast' or self.task_name == 'short_term_forecast':
             self.predict_linear = nn.Linear(
                 self.seq_len, self.pred_len + self.seq_len)
@@ -214,5 +217,9 @@ class Model(nn.Module):
             dec_out = self.forecast(x_enc, x_mark_enc)
             dec_out = dec_out[:, -self.pred_len:, :]  # [B, L, D]
             trend_dec_out = trend_dec_out[:, -self.pred_len:, :]
+
+            trend_dec_out = self.trend_linear(trend_dec_out)
+            dec_out = self.seasonal_linear(dec_out)
+
             return trend_dec_out + dec_out
         return None
