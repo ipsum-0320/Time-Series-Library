@@ -18,7 +18,7 @@ python -u run.py \
   --data_path worldcup.csv \
   --model_id worldcup_96_96 \
   --model $model_name \
-  --data custom \
+  --data worldcup \
   --features S \
   --seq_len $seq_len \
   --label_len 0 \
