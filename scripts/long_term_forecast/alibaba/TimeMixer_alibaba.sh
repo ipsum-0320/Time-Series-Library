@@ -24,8 +24,8 @@ python -u run.py \
   --label_len 0 \
   --pred_len 96 \
   --e_layers $e_layers \
-  --enc_in 2 \
-  --c_out 2 \
+  --enc_in 1 \
+  --c_out 1 \
   --des 'Exp' \
   --itr 1 \
   --d_model $d_model \

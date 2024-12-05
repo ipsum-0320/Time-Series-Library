@@ -17,9 +17,9 @@ python -u run.py \
   --e_layers 3 \
   --d_layers 1 \
   --factor 3 \
-  --enc_in 2 \
-  --dec_in 2 \
-  --c_out 2 \
+  --enc_in 1 \
+  --dec_in 1 \
+  --c_out 1 \
   --des 'Exp' \
   --n_heads 16 \
   --batch_size 32 \

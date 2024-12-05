@@ -17,9 +17,9 @@ python -u run.py \
   --e_layers 2 \
   --d_layers 1 \
   --factor 3 \
-  --enc_in 2 \
-  --dec_in 2 \
-  --c_out 2 \
+  --enc_in 1 \
+  --dec_in 1 \
+  --c_out 1 \
   --des 'Exp' \
   --d_model 32 \
   --d_ff 32 \
