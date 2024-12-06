@@ -121,8 +121,8 @@ class Model(nn.Module):
         self.layer_norm = nn.LayerNorm(configs.d_model)
         self.trend_layer_norm = nn.LayerNorm(configs.d_model)
 
-        self.trend_linear = nn.Linear(in_features=7, out_features=7)
-        self.seasonal_linear = nn.Linear(in_features=7, out_features=7)
+        self.trend_linear = nn.Linear(in_features=configs.enc_in, out_features=configs.enc_in)
+        self.seasonal_linear = nn.Linear(in_features=configs.enc_in, out_features=configs.enc_in)
 
         if self.task_name == 'long_term_forecast' or self.task_name == 'short_term_forecast':
             self.predict_linear = nn.Linear(
