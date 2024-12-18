@@ -124,6 +124,8 @@ class Model(nn.Module):
         self.trend_linear = nn.Linear(in_features=configs.enc_in, out_features=configs.enc_in)
         self.seasonal_linear = nn.Linear(in_features=configs.enc_in, out_features=configs.enc_in)
 
+        self.win_size = configs.win
+
         if self.task_name == 'long_term_forecast' or self.task_name == 'short_term_forecast':
             self.predict_linear = nn.Linear(
                 self.seq_len, self.pred_len + self.seq_len)
@@ -197,7 +199,7 @@ class Model(nn.Module):
             for i in range(x_enc_trend.shape[0]):
                 single_x_enc_trend = x_enc_trend[i]
                 single_x_enc_trend[:, -1] = torch.from_numpy(
-                    uniform_filter1d(single_x_enc_trend[:, -1].cpu(), size=10, axis=0,
+                    uniform_filter1d(single_x_enc_trend[:, -1].cpu(), size=self.win_size, axis=0,
                                      mode='reflect')).to(device)
 
             # 提取最后一维的最后一项（原始值和趋势值）
