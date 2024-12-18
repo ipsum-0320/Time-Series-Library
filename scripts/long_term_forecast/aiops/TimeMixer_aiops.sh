@@ -18,7 +18,7 @@ python -u run.py \
   --data_path aiops.csv \
   --model_id aiops_96_96 \
   --model $model_name \
-  --data custom \
+  --data worldcup \
   --features S \
   --seq_len $seq_len \
   --label_len 0 \
